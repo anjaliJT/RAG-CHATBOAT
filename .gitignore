@@ -7,4 +7,4 @@ __pycache__
 chroma.sqlite3
 .bin
 data/chroma/
-
+.DS_Store
