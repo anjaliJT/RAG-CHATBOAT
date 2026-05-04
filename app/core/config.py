@@ -1,13 +1,16 @@
 import os
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from dotenv import load_dotenv
+load_dotenv()
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Enterprise Gen AI RAG API"
     API_V1_STR: str = "/api/v1"
+    CHROMA_PERSIST_DIR :str = os.getenv("CHROMA_PERSIST_DIR")
+    UPLOAD_DIR :str = os.getenv("UPLOAD_DIR")
+    # OPENAI_API_KEY :str = os.getenv("OPENAI_API_KEY")
+    HUGGINGFACEHUB_API_TOKEN :str = os.getenv("HUGGINGFACEHUB_API_TOKEN")
     
-    OPENAI_API_KEY: str = ""
-    CHROMA_PERSIST_DIR: str = "./data/chroma"
-    UPLOAD_DIR: str = "./data/uploads"
     
     # RAG Settings
     CHUNK_SIZE: int = 1000

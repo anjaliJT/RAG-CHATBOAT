@@ -1,17 +1,23 @@
-from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
+# from langchain_openai import OpenAIEmbeddings
+# from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
+# from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from app.core.config import settings
 
 class VectorStoreManager:
     def __init__(self):
         # We will use OpenAI Embeddings by default for high quality RAG.
-        if not settings.OPENAI_API_KEY:
-            raise ValueError("OPENAI_API_KEY is not set. Please set it in .env file.")
+        # if not settings.OPENAI_API_KEY:
+        #     raise ValueError("OPENAI_API_KEY is not set. Please set it in .env file.")
             
-        self.embeddings = OpenAIEmbeddings(
-            api_key=settings.OPENAI_API_KEY,
-            model="text-embedding-3-small"
-        )
+        self.embeddings = HuggingFaceEmbeddings(
+                    model_name="all-MiniLM-L6-v2"
+                )
+        # self.embeddings = OpenAIEmbeddings(
+        #     api_key=settings.OPENAI_API_KEY,s
+        #     model="text-embedding-3-small"
+        # )
         self.persist_directory = settings.CHROMA_PERSIST_DIR
         
         # Initialize the Chroma DB

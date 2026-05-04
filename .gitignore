@@ -1,0 +1,10 @@
+venv
+.env
+./implementation_plan.md
+./instruction.md
+.pyc
+__pycache__
+chroma.sqlite3
+.bin
+data/chroma/
+

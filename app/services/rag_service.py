@@ -1,18 +1,26 @@
-from langchain_openai import ChatOpenAI
+# from langchain_openai import ChatOpenAI
+from langchain_community.llms import HuggingFaceHub
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 from app.vectorstore.chroma_store import vector_store_manager
 from app.core.config import settings
+from langchain_community.llms import Ollama
 
+llm = Ollama(model="llama3")
 class RAGService:
     def __init__(self):
         # Using a solid default model for RAG tasks
-        self.llm = ChatOpenAI(
-            api_key=settings.OPENAI_API_KEY,
-            model="gpt-4o-mini",
-            temperature=0.0
-        )
+        self.llm = Ollama(model="llama3")
+        # self.llm =  HuggingFaceHub(
+        #     repo_id="mistralai/Mistral-7B-Instruct",
+        #     huggingfacehub_api_token=settings.HUGGINGFACEHUB_API_TOKEN,
+        #         )
+        # self.llm = ChatOpenAI(
+        #     api_key=settings.HUGGINGFACEHUB_API_TOKEN,
+        #     model="gpt-4o-mini",
+        #     temperature=0.0
+        # )
         self.retriever = vector_store_manager.get_retriever(k=settings.RETRIEVER_K)
         
         # System prompt designed to prevent hallucination and enforce context usage
