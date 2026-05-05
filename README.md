@@ -1,7 +1,11 @@
-# RAG-CHATBOAT
+# RAG-CHATBOT
 
 ## Overview
-RAG-CHATBOAT is an HR policy chatbot built using Retrieval-Augmented Generation (RAG). It answers user queries based on internal company documents with high accuracy and minimal hallucination.
+RAG-CHATBOT is a document-aware conversational AI system built using Retrieval-Augmented Generation (RAG). It enables users to ask questions and receive accurate, context-driven answers derived directly from provided documents.
+
+The system works by retrieving relevant information from a custom knowledge base and using it to generate responses, reducing hallucinations and improving reliability compared to standard language models.
+
+Designed to be flexible and extensible, the chatbot can be trained on any domain-specific dataset—such as company policies, technical documentation, or knowledge bases—making it suitable for a wide range of use cases including HR support, customer assistance, and internal knowledge management.
 
 ## Working Flow
 
