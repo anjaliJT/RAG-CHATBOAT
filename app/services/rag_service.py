@@ -11,7 +11,9 @@ llm = Ollama(model="llama3")
 class RAGService:
     def __init__(self):
         # Using a solid default model for RAG tasks
-        self.llm = Ollama(model="llama3")
+        # EXPERIMENT 1: Model Parameters
+        # 'temperature' controls randomness. 0 is deterministic (good for coding/facts), 0.8+ is creative.
+        self.llm = Ollama(model="llama3", temperature=0.7)
         # self.llm =  HuggingFaceHub(
         #     repo_id="mistralai/Mistral-7B-Instruct",
         #     huggingfacehub_api_token=settings.HUGGINGFACEHUB_API_TOKEN,

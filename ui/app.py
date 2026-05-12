@@ -4,10 +4,10 @@ import os
 
 API_URL = "http://localhost:8000/api/v1"
 
-st.set_page_config(page_title="Enterprise RAG Assistant", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Private AI Assistant", layout="wide")
 
-st.title("🤖 Enterprise Gen AI RAG Assistant")
-st.markdown("Upload documents (PDF, TXT, MD) and ask questions about them using state-of-the-art Retrieval-Augmented Generation.")
+st.title("Your Private AI Assistant")
+st.markdown("Upload documents (PDF, TXT, MD) and ask questions about them.")
 
 # Sidebar for document upload
 with st.sidebar:
